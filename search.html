@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索 – CraftPath</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">CraftPath</a>
+      <nav>
+        <a href="index.html">首页</a>
+        <a href="perler/index.html">拼豆</a>
+        <a href="beading/index.html">串珠</a>
+        <a href="search.html" class="active">搜索</a>
+        <a href="path.html">学习路径</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <div class="breadcrumb"><a href="index.html">首页</a> / 搜索</div>
+        <h1>搜索内容</h1>
+        <p>按关键词、分类或难度筛选教程与过程展示。</p>
+      </div>
+
+      <div class="search-box">
+        <input type="search" id="search-input" placeholder="输入关键词，如：熨烫、Peyote、3D、绕线..." autofocus>
+      </div>
+
+      <div class="filters">
+        <button class="filter-chip active" data-filter="all">全部</button>
+        <button class="filter-chip" data-filter="perler">拼豆</button>
+        <button class="filter-chip" data-filter="beading">串珠</button>
+        <button class="filter-chip" data-filter="beginner">入门</button>
+        <button class="filter-chip" data-filter="intermediate">进阶</button>
+      </div>
+
+      <div id="search-results">
+        <!-- JS 渲染 -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CraftPath · 客户端搜索，无需服务器</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

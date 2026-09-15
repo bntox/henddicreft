@@ -1,0 +1,504 @@
+/* CraftPath – Clean static styles */
+:root {
+  /* Scheme B: soft cream + soft teal + soft coral */
+  --bg: #FAF7F2;
+  --text: #2C241B;
+  --muted: #6B5E55;
+  --primary: #4A7C6F;
+  --primary-light: #5A9485;
+  --accent: #D98B6B;
+  --card: #FFFFFF;
+  --border: #E8E2D9;
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(44, 36, 27, 0.06);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-light); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+nav { display: flex; gap: 1.5rem; }
+nav a { color: var(--muted); font-size: 0.95rem; font-weight: 500; }
+nav a:hover, nav a.active { color: var(--primary); }
+
+/* Hero */
+.hero {
+  padding: 4rem 0 3.5rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f0f4f1 0%, var(--bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+.hero p { color: var(--muted); max-width: 520px; margin: 0 auto 2rem; }
+.hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: 0.15s;
+}
+.btn.primary { background: var(--primary); color: #fff; }
+.btn.primary:hover { background: var(--primary-light); color: #fff; }
+.btn.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+.btn.secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Sections */
+.section { padding: 3.5rem 0; }
+.section.alt { background: #f3f1ed; }
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+/* Path cards */
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.path-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 0 1.25rem 0;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.path-card .level {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.path-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.path-card ul { list-style: none; margin-bottom: 1rem; }
+.path-card li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.2rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+.path-card li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.path-card a { display: block; font-size: 0.9rem; font-weight: 600; margin-top: 0.35rem; }
+
+/* Category cards */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+.cat-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 0 1.25rem 0;
+  box-shadow: var(--shadow);
+  transition: 0.15s;
+  overflow: hidden;
+}
+.cat-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+.cat-card h3 { font-size: 1.25rem; margin-bottom: 0.4rem; color: var(--text); }
+.cat-card p { color: var(--muted); font-size: 0.95rem; }
+.cat-card.perler { border-left: 4px solid #5b8c5a; }
+.cat-card.beading { border-left: 4px solid #c45c26; }
+
+/* Resource list */
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.resource {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+}
+.resource .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #eef4f0;
+  color: var(--primary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.resource h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.resource p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
+.resource a { font-size: 0.9rem; font-weight: 600; }
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p + p { margin-top: 0.3rem; }
+
+/* Subpage common */
+.page-header {
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.page-header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+.page-header p { color: var(--muted); }
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--primary); }
+
+/* Tutorial card / list */
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.tutorial-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: 0.15s;
+}
+.tutorial-card:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+.tutorial-card .thumb {
+  aspect-ratio: 16/10;
+  background: #eef2ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.tutorial-card .body { padding: 1.1rem 1.25rem; }
+.tutorial-card h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+.tutorial-card .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+.tutorial-card p { font-size: 0.9rem; color: var(--muted); }
+
+/* Content article */
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.article h2 { font-size: 1.35rem; margin: 2rem 0 0.75rem; }
+.article h3 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+.article p, .article li { margin-bottom: 0.85rem; }
+.article ul, .article ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+.article .video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.article .video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
+.tag-pill {
+  font-size: 0.75rem;
+  background: #eef4f0;
+  color: var(--primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+}
+
+/* Search page */
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.search-box input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+#search-results { min-height: 200px; }
+.result-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.result-item h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+.result-item .path { font-size: 0.8rem; color: var(--muted); }
+.result-item p { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; }
+
+/* Filter chips */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.filter-chip {
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.filter-chip:hover, .filter-chip.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  nav { gap: 1rem; font-size: 0.9rem; }
+  .hero { padding: 2.5rem 0 2rem; }
+  .path-grid, .cat-grid, .resource-list, .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Resource cards with image thumbnails */
+.resource-list.with-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.resource.with-thumb {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.resource.with-thumb .thumb {
+  aspect-ratio: 16/10;
+  background-size: cover;
+  background-position: center;
+  background-color: #eef2ef;
+}
+.resource.with-thumb .body {
+  padding: 1rem 1.15rem 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.resource.with-thumb .body p {
+  flex: 1;
+  margin-bottom: 0.75rem;
+}
+.resource.with-thumb .tag {
+  margin-bottom: 0.4rem;
+}
+
+/* Hero with image support */
+.hero-with-img {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.hero-with-img .hero-visual {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .hero-with-img {
+    grid-template-columns: 1fr;
+  }
+  .hero-with-img .hero-visual {
+    order: -1;
+    max-height: 220px;
+  }
+}
+
+/* Category card with larger image area */
+.cat-card .cat-visual {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px 10px 0 0;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+}
+.cat-card {
+  overflow: hidden;
+}
+
+
+/* Path cards with top images - FIXED */
+.path-card {
+  overflow: hidden;
+  padding-top: 0;
+}
+.path-card .cat-visual,
+.path-card .path-visual {
+  display: block;
+  width: 100%;
+  height: 110px;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  margin: 0 0 1rem 0 !important;
+  border-radius: 0;
+}
+.path-card .level {
+  margin-left: 1.5rem;
+  margin-top: 0.25rem;
+}
+.path-card h3,
+.path-card ul,
+.path-card a {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.path-card a:last-child {
+  margin-bottom: 1.25rem;
+}
+
+/* Category cards image */
+.cat-card {
+  overflow: hidden;
+  padding-top: 0;
+}
+.cat-card .cat-visual {
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  margin: 0 0 1.1rem 0 !important;
+  border-radius: 0;
+}
+.cat-card h3,
+.cat-card p {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.cat-card p {
+  padding-bottom: 1.25rem;
+}
+
+/* Hero visual */
+.hero-with-img .hero-visual {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  min-height: 280px;
+}
+
+/* Resource thumbs */
+.resource.with-thumb .thumb {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Subpage header banner */
+.page-header.has-banner {
+  padding-top: 0;
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+}
+.page-banner {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius);
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 640px) {
+  .page-banner { height: 120px; }
+  .path-card .path-visual,
+  .path-card .cat-visual { height: 90px; }
+  .cat-card .cat-visual { height: 120px; }
+}
+
+.path-card .level { display: inline-block; margin: 0.75rem 1.25rem 0.35rem; }
+.path-card h3 { margin: 0 1.25rem 0.5rem; }
+.path-card ul { margin: 0 1.25rem 0.75rem; }
+.path-card a { margin-left: 1.25rem; margin-right: 1.25rem; }
+.cat-card h3 { margin: 0.85rem 1.35rem 0.35rem; padding: 0; }
+.cat-card p { margin: 0 1.35rem 1rem; padding: 0; }
